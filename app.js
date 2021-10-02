@@ -4,11 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-const fs = require('fs');
 
 var loginRouter = require('./routes/loginRouter');
+var utils = require('./util/utils')
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,11 +31,17 @@ app.use(session({
 
 
 
-let rawdata = fs.readFileSync('./users.json');
-let users = JSON.parse(rawdata);
+
+// read users file
+let users = utils.readFile('./users.json');
+console.log("users: "+JSON.stringify(users));
 
 exports.users = users;
 
+
+
+
+// set router
 app.use('/', loginRouter);
 
 
@@ -52,6 +61,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 
 
