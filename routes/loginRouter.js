@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var app = require('../app');
+var utils = require('../util/utils');
+const fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,33 +26,25 @@ router.post('/login', function(req, res, next) {
     
     var users = app.users;
 
-    console.log('auth------------');
-
-    //console.log(req.users);
-    console.log('auth2------------');
-    
     var email = req.body.email;
     var password = req.body.password;
     if (email && password) {
-      console.log("email: "+email);
       console.log(users[email]);
-      //console.log(users[email]["password"]);
       if (users[email] != undefined) {
-          
         if (password == users[email]["password"]) {
-          console.log(1);
-          console.log(req);
-          console.log(2);
-          console.log(req.session);
-          
           req.session.loggedin = true;
           req.session.username = email;
 
-          console.log(req.session.username);
-          console.log(req.session.loggedin);
+          let lastAccess = users[email]["lastAccess"];
 
-          //res.redirect('/welcome');
-          res.render('welcome', { user: email.substring(0, email.indexOf('@')), time: users[email]["lastAccess"] });
+          users[email]["lastAccess"] = (new Date()).getTime();
+          
+          utils.writeFile('users.json', users);
+
+          res.render('welcome', { 
+            user: email.substring(0, email.indexOf('@')), 
+            time: lastAccess 
+          });
         } else {
           //res.send('Incorrect email and/or password');
           res.render('index', { 
