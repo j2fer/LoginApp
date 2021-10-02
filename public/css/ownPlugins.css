@@ -1,7 +1,105 @@
+/***********************************************
+***** Styles added to style.css because of *****
+***** heroku bug that empties this css *********
+***********************************************/
+
 /** custom inputs **/
-.appInput {
+/*.appInput {
     border: 0;
     padding: 4px 0; 
     border-bottom: 1px solid #ccc; 
     background-color: transparent !important;
 }
+
+.appInput:focus {
+    outline: none;
+}
+
+.appInput ~ .focus-border {
+    content: '';
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background-color: #3399FF; 
+    transition: 0.4s;
+}
+
+.appInput:focus ~ .focus-border,
+.has-content.appInput ~ .focus-border {
+    width: 100%; 
+    transition: 0.4s;
+}
+
+.appInput ~ label {
+    position: absolute; 
+    left: 0; 
+    width: 100%; 
+    top: 9px; 
+    color: #aaa; 
+    transition: 0.3s; 
+    z-index: -1; 
+    letter-spacing: 0.5px;
+    pointer-events: none;
+}
+
+.appInput:focus ~ label, 
+.has-content.appInput ~ label {
+    top: -16px; 
+    font-size: 12px; 
+    color: #3399FF; 
+    transition: 0.3s;
+}
+*/
+
+/** Install app popup **/
+/*
+#installBlock {
+    float: left;
+    width: 90%;
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    z-index: 10;
+    background-color: #f1f1f1;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 10px;
+    color: #404040;
+    box-shadow: 2px 4px 5px 0 #707070;
+  }
+  
+  #installBlock > div {
+    float: left;
+    width: 100%;
+  }
+  
+  #installIconBlock {
+    float: left;
+    width: 20%;
+  }
+  
+  #installIconBlock img {
+    float: left;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  #installMessageBlock {
+    float: left;
+    width: 80%;
+    padding: 10px 0 10px 10px;
+  }
+  
+  #installButtonBlock {
+    float: left;
+    width: 100%;
+    padding-top: 20px;
+  }
+  
+  #installButton, #cancelButton {
+    float: right;
+    margin-left: 25px;
+  }
+*/
