@@ -62,7 +62,7 @@ mocha testLogin.js      // test app
 
 ```
 
-Asímismo la la app se puede probar en Heroku. [Heroku app](https://j2fer-login-app.herokuapp.com/)
+Asímismo la la app se puede probar en Heroku. [j2fer-login-app.herokuapp.com](https://j2fer-login-app.herokuapp.com/)
 
 Para probar la aplicación basta con registrar un nuevo usuario o bien modificar manualmente el fichero users.json
 
@@ -70,4 +70,4 @@ Para probar la aplicación basta con registrar un nuevo usuario o bien modificar
 
 ## Autor
 
-Esta app ha sido desarrollada por José Javier Fernández Juárez. [GitHub page](https://github.com/j2fer)
+Esta app ha sido desarrollada por José Javier Fernández Juárez. [github.com/j2fer](https://github.com/j2fer)
