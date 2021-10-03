@@ -9,11 +9,17 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+
+
 var showInstallationPopUp = true;
+
+
 
 
 $(this.document).ready(function(){
 
+    // Transform inputs style
+    //-----------------------
     $('.appInput').each(function() {
         $(this).transformAppInput();
     });
@@ -21,6 +27,8 @@ $(this.document).ready(function(){
 
 
 
+    //App installation logic
+    //----------------------
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -29,8 +37,7 @@ $(this.document).ready(function(){
         // Stash the event so it can be triggered later.
         deferredPrompt = e;
         // Update UI notify the user they can install the PWA
-        //showInstallPromotion();
-
+        
         var localStorageShowPopUp = localStorage.getItem('LoginAppShowInstall');
         if (localStorageShowPopUp != null && 
                 localStorageShowPopUp != undefined && 
@@ -46,8 +53,6 @@ $(this.document).ready(function(){
                     "installCallback": async () => {
                         $.removeInstallMessage();
                         localStorage.setItem('LoginAppShowInstall', false);
-                        // Hide the app provided install promotion
-                    //    hideInstallPromotion();
                         // Show the install prompt
                         deferredPrompt.prompt();
                         // Wait for the user to respond to the prompt
@@ -63,40 +68,35 @@ $(this.document).ready(function(){
                         showInstallationPopUp = false;
                     }
                 })
-            }, 2500);
+            }, 1500);
         }
 
         // Optionally, send analytics event that PWA install promo was shown.
         console.log(`'beforeinstallprompt' event was fired.`);
     });
 
-
-
-      window.addEventListener('appinstalled', () => {
+    window.addEventListener('appinstalled', () => {
 
         $.removeInstallMessage();
         showInstallationPopUp = false;
 
-        // Hide the app-provided install promotion
-     //   hideInstallPromotion();
         // Clear the deferredPrompt so it can be garbage collected
         deferredPrompt = null;
         // Optionally, send analytics event to indicate successful install
         console.log('PWA was installed');
-      });
+    });
 
-
-      window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+    window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
         let displayMode = 'browser';
         if (evt.matches) {
           displayMode = 'standalone';
         }
         // Log display mode change to analytics
         console.log('DISPLAY_MODE_CHANGED', displayMode);
-      });
+    });
 
 
-      console.log(getPWADisplayMode());
+    console.log(getPWADisplayMode());
 
 
 });

@@ -13,7 +13,9 @@ var app = express();
 
 
 
-// view engine setup
+//------------------
+// View engine setup
+//------------------
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -32,26 +34,35 @@ app.use(session({
 
 
 
-// read users file
+//----------------
+// Read users file
+//----------------
 let users = utils.readFile('./users.json');
-console.log("users: "+JSON.stringify(users));
 
 exports.users = users;
 
 
 
 
-// set router
+//-----------
+// Set router
+//-----------
 app.use('/', loginRouter);
 
 
 
-// catch 404 and forward to error handler
+//---------------------------------------
+// Catch 404 and forward to error handler
+//---------------------------------------
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+
+
+//--------------
+// Error handler
+//--------------
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -65,12 +76,4 @@ app.use(function(err, req, res, next) {
 
 
 
-
-
 module.exports = app;
-/*module.exports = function() {
-  var appExport = app;
-  appExport.set('port', 3000);
-  appExport.users = users;
-  return appExport;
-};*/

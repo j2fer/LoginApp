@@ -1,5 +1,10 @@
 (function($){
 	
+
+    
+    //---------------------------------------
+    // Plugin that transforms style of inputs
+    //---------------------------------------
 	$.fn.transformAppInput = function() {
 		
         var input = this;
@@ -23,6 +28,7 @@
         input.after(borderElem);
         input.after(labelElem);
 
+        // Bind event
         input.on('focusout', function() {
             if (input.val().length > 0) {
                 input.addClass('has-content');
@@ -32,6 +38,12 @@
         });
 	}
 
+
+
+    
+    //-----------------------------
+    // Shows validation error block
+    //-----------------------------
     $.showValidationError = function(options) {
 
         let defaultOptions = {
@@ -43,9 +55,7 @@
         $.hideValidationError();
 
         $('#errorBlock').empty();
-
         $('#errorBlock').text(properties["message"]);
-        
         $('#errorBlock').show();
 	}
 
@@ -56,6 +66,13 @@
 
 
 
+
+
+
+    
+    //------------------------
+    // Shows app install popup 
+    //------------------------
     $.showInstallMessage = function(options) {
 
         $.removeInstallMessage();
@@ -70,7 +87,8 @@
         var properties = $.extend(defaultOptions, options);
 
         $(properties.parent).css({'position':'relative', 'z-index':0});
-        
+
+        // Construct element
         let container = $('<aside id="installBlock" class="off"/>');
         let topContent = $('<div />');
         let bottomContent = $('<div id="installButtonBlock" />');
@@ -85,6 +103,8 @@
         container.append(topContent).append(bottomContent);
         $(properties.parent).append(container);
 
+        
+        // Bind events to buttons
         installButton.on('click', function(e){
             if (properties.installCallback != undefined && properties.installCallback != '') {
                 var args = Array.prototype.slice.call(arguments, 2);				
@@ -99,6 +119,8 @@
             }
         });
 
+
+        // Appear effect
         setTimeout(function() {
             container.removeClass('off');
         }, 10);
