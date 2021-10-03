@@ -137,37 +137,58 @@ table {
 }
 
 
+
 /** FONT ICONS **/
 @font-face {
-    font-family: 'icons';
-    src:  url('../fonts/icons.eot?4d1cn2');
-    src:  url('../fonts/icons.eot?4d1cn2#iefix') format('embedded-opentype'),
-      url('../fonts/icons.ttf?4d1cn2') format('truetype'),
-      url('../fonts/icons.woff?4d1cn2') format('woff'),
-      url('../fonts/icons.svg?4d1cn2#icons') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+  font-family: 'icons';
+  src:  url('../fonts/icons.eot?9dy8q4');
+  src:  url('../fonts/icons.eot?9dy8q4#iefix') format('embedded-opentype'),
+    url('../fonts/icons.ttf?9dy8q4') format('truetype'),
+    url('../fonts/icons.woff?9dy8q4') format('woff'),
+    url('../fonts/icons.svg?9dy8q4#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-  
+
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icons' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-  
+
+.icon-logout:before {
+  content: "\e901";
+}
+.icon-login:before {
+  content: "\e902";
+}
+.icon-key:before {
+  content: "\e903";
+}
+.icon-mail:before {
+  content: "\e904";
+}
 .icon-lock:before {
-    content: "\e900";
+  content: "\e900";
 }
+
+.icon-login, .icon-logout {
+  margin-left: 5px;
+  font-size: 1.2em;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
 
 
 /** BODY **/
@@ -183,8 +204,10 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 50px;
+    position: relative;
 }
 
 
@@ -193,7 +216,7 @@ body {
 #loginScreen {
     float: left;
     width: 90%;
-    max-width: 350px;
+    max-width: 400px;
     border: 1px solid #d8dee4;
     /*background-color: #f6f8fa;*/
     background-color: #ffffff;
@@ -210,7 +233,12 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
+    max-height: 150px;
+}
+
+#loginTopSection img {
+  object-fit: contain;
 }
 
 .icon-lock {
@@ -240,6 +268,26 @@ body {
     z-index: 0;*/
 }
 
+#emailBlock::after {
+    content: "\e904";
+}
+
+#passwordBlock::after {
+    content: "\e903";
+}
+
+#emailBlock::after, #passwordBlock::after {
+    font-family: 'icons';
+    color: black;
+    position: absolute;
+    z-index: 3;
+    right: 15px;
+    bottom: 4px;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #525252;
+}
+
 .formBlock .appInput, 
 .formBlock .appButton {
     float: left;
@@ -264,7 +312,7 @@ body {
 #welcomeScreen {
   float: left;
   width: 95%;
-  max-width: 350px;
+  max-width: 400px;
 }
 
 #welcomeScreen header {
@@ -380,8 +428,7 @@ footer.formBlock {
   float: left;
   width: 90%;
   position: absolute;
-  top: 20px;
-  left: 5%;
+  top: 10px;
   z-index: 10;
   background-color: #f1f1f1;
   border: 1px solid #e1e1e1;
@@ -389,6 +436,14 @@ footer.formBlock {
   padding: 10px;
   color: #404040;
   box-shadow: 2px 4px 5px 0 #707070;
+	transition: all 1s ease-in-out;
+  max-width: 350px;
+  height: 150px;
+}
+
+#installBlock.off {
+  top: -160px;
+	transition: all 1s ease-in-out;
 }
 
 #installBlock > div {

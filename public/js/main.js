@@ -41,7 +41,7 @@ $(this.document).ready(function(){
         if(showInstallationPopUp){
             window.setTimeout(function() {
                 $.showInstallMessage( {
-                    "parent": "#loginScreen", 
+                    "parent": "body", 
                     "message": "Do you want to install the app for a better user experience?",
                     "installCallback": async () => {
                         $.removeInstallMessage();
@@ -63,7 +63,7 @@ $(this.document).ready(function(){
                         showInstallationPopUp = false;
                     }
                 })
-            }, 3000);
+            }, 2500);
         }
 
         // Optionally, send analytics event that PWA install promo was shown.
