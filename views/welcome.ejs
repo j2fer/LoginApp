@@ -21,7 +21,7 @@
 	</head>
 	<body>
 
-		<section id="welcomeScreen">
+		<section id="welcomeScreen" class="mainContainer">
 			<header>
 				<h1>Welcome <%= user %>!</h1>
 				<p>The last time you accessed was</p>
@@ -46,7 +46,7 @@
 			</section>
 			<footer class="formBlock">
 				<form name="logoutForm" id="logoutForm" method="GET" action="/logout" >
-					<button id="logout" class="appButton">Logout</button>
+					<button id="logout" class="appButton">Logout<span class="icon-logout"></span></button>
 				</form>
 			</footer>
 		</section>

@@ -71,7 +71,7 @@
 
         $(properties.parent).css({'position':'relative', 'z-index':0});
         
-        let container = $('<aside id="installBlock" />');
+        let container = $('<aside id="installBlock" class="off"/>');
         let topContent = $('<div />');
         let bottomContent = $('<div id="installButtonBlock" />');
         let imageBlock = $('<div id="installIconBlock"><img src="images/app-192-192.png"></div>');
@@ -98,6 +98,10 @@
                 properties.cancelCallback.apply(this, args);
             }
         });
+
+        setTimeout(function() {
+            container.removeClass('off');
+        }, 10);
 
     }
 
