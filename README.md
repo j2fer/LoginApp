@@ -10,7 +10,7 @@ Esta aplicacón es un ejemplo básico de caso de uso de login. El objetivo es el
 
 <img alt="login" src="https://github.com/j2fer/LoginApp/blob/master/public/images/Screenshot_1.png" />
 
-La pantalla inicial consta de dos campos de texto para el email y el password y un botón para acceder. Dado que son campos de entrada requieren validación en frontend y su posterior validación en el backend Asímismo se ha añadido un enlace para acceder a un formulario para el registro de un nuevo usuario. 
+La pantalla inicial consta de dos campos de texto para el email y el password y un botón para acceder. Dado que son campos de entrada requieren validación en frontend y su posterior validación en el backend. Asímismo se ha añadido un enlace para acceder a un formulario para el registro de un nuevo usuario. 
 
 
 ### Pantalla registro nuevo usuario
