@@ -15,7 +15,6 @@
 }
 ::-webkit-scrollbar-thumb {
   background: #868686;
-  /*border: 1px solid #A8A8A8;*/
   border-radius: 3px;
   box-shadow: inset 0 0 3px 0px #4c4c4c;
 }
@@ -89,6 +88,32 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+
+/** LINKS **/
+a {
+  color: #006ac3;
+  text-decoration: none;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid #006ac3;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 10px;
+}
+a:active{
+	color: #006ac3;
+  transition: 0.5s;
+}
+a:visited{
+	color: #006ac3;
+  transition: 0.5s;
+}
+a:hover{
+	cursor: pointer;
+  box-shadow: 1px 2px 5px 0 #17171b75;
+  transition: 0.5s;
 }
 
 
@@ -194,13 +219,11 @@ table {
 /** BODY **/
 
 body {
-    /*background-color: #ffffff;*/
     background-color: #f1f1f1;
     float: left;
     width: 100%;
     font-family: Verdana;
     font-size: 0.8em;
-    overflow: hidden;
     height: 100vh;
     display: flex;
     flex-direction: row;
@@ -208,17 +231,17 @@ body {
     justify-content: center;
     padding-top: 50px;
     position: relative;
+    color: #404040;;
 }
 
 
 /** LOGIN **/
 
-#loginScreen {
+#loginScreen, #registerScreen {
     float: left;
     width: 90%;
     max-width: 400px;
     border: 1px solid #d8dee4;
-    /*background-color: #f6f8fa;*/
     background-color: #ffffff;
     border-radius: 4px;
     padding: 20px;
@@ -228,7 +251,6 @@ body {
 #loginTopSection {
     float: left;
     width: 100%;
-    /*border: 1px solid red;*/
     min-height: 100px;
     display: flex;
     flex-direction: row;
@@ -237,7 +259,28 @@ body {
     max-height: 150px;
 }
 
-#loginTopSection img {
+#registerTopSection {
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  display: block;
+  max-height: 90px;
+}
+
+#registerTopSection img {
+  float: left;
+  width: 15%;
+}
+#registerTopSection p {
+  float: left;
+  width: 85%;
+  padding-left: 20px;
+  text-align: right;
+  padding-top: 20px;
+  margin: 0;
+}
+
+#loginTopSection img, #registerTopSection img {
   object-fit: contain;
 }
 
@@ -247,13 +290,12 @@ body {
     color: #004481;
 }
 
-#loginFormSection {
+#loginFormSection, #registerFormSection {
     float: left;
     width: 100%;
-    /*border: 1px solid green;*/
 }
 
-#loginForm {
+#loginForm, #registerForm {
     float: left;
     width: 100%;
     display: block;
@@ -263,20 +305,18 @@ body {
     float: left;
     width: 100%;
     margin: 15px 0 8px 0;
-    /*border: 1px solid yellow;*/
-    /*position: relative;
-    z-index: 0;*/
 }
 
 #emailBlock::after {
     content: "\e904";
 }
 
-#passwordBlock::after {
+#passwordBlock::after, #repeatPasswordBlock::after {
     content: "\e903";
 }
 
-#emailBlock::after, #passwordBlock::after {
+#emailBlock::after, #passwordBlock::after, 
+#repeatPasswordBlock::after {
     font-family: 'icons';
     color: black;
     position: absolute;
@@ -304,6 +344,13 @@ body {
   color: #8c2d46;
   padding: 10px 20px;
   margin-bottom: 20px;
+}
+
+#newUserBlock {
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
 }
 
 
@@ -368,6 +415,7 @@ footer.formBlock {
 #logout {
   width: auto;
 }
+
 
 
 
@@ -439,11 +487,13 @@ footer.formBlock {
 	transition: all 1s ease-in-out;
   max-width: 350px;
   height: 150px;
+  right: inherit;
 }
 
 #installBlock.off {
   top: -160px;
 	transition: all 1s ease-in-out;
+  right: inherit;
 }
 
 #installBlock > div {
@@ -477,5 +527,16 @@ footer.formBlock {
 #installButton, #cancelButton {
   float: right;
   margin-left: 25px;
+}
+
+
+
+
+@media only screen and (min-width: 40em) {
+  
+  #installBlock {
+    right: 30px;
+  }
+
 }
 

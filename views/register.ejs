@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html> 
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="theme-color" content="#006ac3">
+
+   		<title>Login App</title>
+		<link rel="manifest" href="manifest.json">
+   		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+   		<link rel="stylesheet" type="text/css" href="css/ownplugins.css" media="screen" />
+		<link rel="apple-touch-icon" href="/app-192-192.png">
+		<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/ownPlugins.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="sw.js"></script>
+
+
+	</head>
+	<body>
+		<section id="registerScreen" class="mainContainer">
+			<section id="registerTopSection">
+				<img src="images/app-192-192.png" alt="Login App">
+				<p>Have already an account? <a href="/">Log in</a></p>
+			</section>
+			<section id="errorBlock"<%= displayError %>><%= errorMessage %></section>
+			<section id="classFormSection">
+				<form name="registerForm" id="registerForm" method="POST" action="/register" >
+					<div class="formBlock" id="emailBlock">
+						<input type="text" id="email" name="email" class="appInput" placeholder="Email" value="<%= user %>">
+					</div>
+					<div class="formBlock" id="passwordBlock">
+						<input type="password" id="password" name="password" class="appInput" placeholder="Password">
+					</div>
+					<div class="formBlock" id="repeatPasswordBlock">
+						<input type="password" id="repeatPassword" name="repeatPassword" class="appInput" placeholder="Repeat password">
+					</div>
+					<div class="formBlock">
+						<button id="login" class="appButton">Register<span class="icon-login"></span></button>
+					</div>
+				</form>
+			</section>
+		</section>
+		
+	</body>
+</html>
