@@ -1,7 +1,9 @@
 $(this.document).ready(function(){
 
-
-    $('#loginForm').on('blur', '#email', function(e) {
+    // Form binds
+    //-----------
+    
+    $('#loginForm, #registerForm').on('blur', '#email', function(e) {
         var emailVal = $(e.target).val();
         if (emailVal.length > 0) {
             if (!validateEmail(emailVal)) {
@@ -16,7 +18,7 @@ $(this.document).ready(function(){
         }
     });
 
-    $('#loginForm').on('click', '#login',  function(e) {
+    $('#loginForm, #registerForm').on('click', '#login, #register',  function(e) {
         e.preventDefault();
         if (validateLogin()) {
             $.hideValidationError();
@@ -25,6 +27,18 @@ $(this.document).ready(function(){
             $.showValidationError({
                 "message": "Incorrect email and/or password"
             });
+        }
+    });
+
+    $('#registerForm').on('blur', '#password, #repeatPassword', function(e) {
+        var repeatPass = $('#repeatPassword').val();
+        var password = $('#password').val()
+        if (password.length > 0 && repeatPass.length > 0) {
+            if (repeatPass != password) {
+                $.showValidationError({
+                    "message": "Password does not match"
+                });
+            }
         }
     });
 

@@ -20,10 +20,9 @@
 
 	</head>
 	<body>
-		<section id="loginScreen">
+		<section id="loginScreen" class="mainContainer">
 			<section id="loginTopSection">
 				<img src="images/app-192-192.png" alt="Login App">
-				<!--div class="icon-lock"></div-->
 			</section>
 			<section id="errorBlock"<%= displayError %>><%= errorMessage %></section>
 			<section id="loginFormSection">
@@ -38,6 +37,9 @@
 						<button id="login" class="appButton">Log In<span class="icon-login"></span></button>
 					</div>
 				</form>
+			</section>
+			<section id="newUserBlock">
+				<p>New User? <a href="/register">Register</a></p>
 			</section>
 		</section>
 		
