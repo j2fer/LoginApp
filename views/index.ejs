@@ -22,19 +22,20 @@
 	<body>
 		<section id="loginScreen">
 			<section id="loginTopSection">
-				<div class="icon-lock"></div>
+				<img src="images/app-192-192.png" alt="Login App">
+				<!--div class="icon-lock"></div-->
 			</section>
 			<section id="errorBlock"<%= displayError %>><%= errorMessage %></section>
 			<section id="loginFormSection">
 				<form name="loginForm" id="loginForm" method="POST" action="/login" >
-					<div class="formBlock">
+					<div class="formBlock" id="emailBlock">
 						<input type="text" id="email" name="email" class="appInput" placeholder="Email" value="<%= user %>">
 					</div>
-					<div class="formBlock">
+					<div class="formBlock" id="passwordBlock">
 						<input type="password" id="password" name="password" class="appInput" placeholder="Password">
 					</div>
 					<div class="formBlock">
-						<button id="login" class="appButton">Log In</button>
+						<button id="login" class="appButton">Log In<span class="icon-login"></span></button>
 					</div>
 				</form>
 			</section>
